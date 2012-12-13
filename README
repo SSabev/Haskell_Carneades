@@ -78,6 +78,9 @@ $> ./Trial "name_of_your_file" prop_you_want_test
 
 3. Test files.
 
+All the test files have now been moved to the test_files directory. Feel free to 
+follow the general syntax and create your own :)
+
 - I have included the test_file.txt which is the CAES from the language.lhs file
 implemented in order to check if the system work. The other test files are in 
 form Test_argument_i. They all have comments in them saying what do they return.
@@ -86,7 +89,7 @@ form Test_argument_i. They all have comments in them saying what do they return.
 will not automatically add a space in readFromFile. So don't get too shocked by 
 it.
 
-The test file for the 2nd part of the assignment is called "Scopes_Trial_BoP" It has some tweaked
+The test file for the 2nd part of the assignment is called "Scopes_BoP" It has some tweaked
 arguments weights and some slight rearrangements. Unlike the previous examples this will return False,
 as I believe teaching evolution is not wrong, but a natural thing for schools.
 
