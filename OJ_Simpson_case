@@ -1,0 +1,26 @@
+ARGUMENTS:
+
+-- This attempts to mimic the OJ Simpson case where he supposedly killed his ex-wife 
+
+-- his wife and her partner were killed but there was no clear evidence that he did
+arg1 [kill_wife, kill_wifes_partner] [no_clear_evidence] -murder 0.7 .
+-- There was DNA evidence found that his blood was found on the scence
+arg2 [dna_evidence] [] murder 0.4 .
+-- But he had alibi which was saying that he wasn't at the crime scene
+arg3 [possible_alibi] [dna_evidence] -murder 0.2 .
+-- And he had an intent to kill her as apparently he had a bad relationship with her
+arg4 [intent_to_kill] [] murder 0.1 . -- just showing that it won't break
+-- And he had no previous convictions that could prove he was unstable and likely to be the killer
+arg5 [previous_convictions] [] murder 0.1 .
+
+ASSUMPTIONS:
+
+-- Here are all the assumptions:
+
+[dna_evidence , possible_alibi, previous_convictions, no_clear_evidence] .
+
+STANDARDS:
+
+murder beyond_reasonable_doubt .
+
+--When doing testProposition "murder" my_caes it returns false => there was no enough evidence to show that he actually killed his wife

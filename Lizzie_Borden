@@ -1,0 +1,30 @@
+ARGUMENTS:
+
+-- This attempts to mimic the Lizzie Borden who killed her father and stepmother.
+
+-- She was arrested because she was home along the did not show any fight when she was taken and took it calmly 
+arg1 [home_alone, no_struggle] [] murder 0.3 .
+-- She was also seen burning a dress but she said it was just covered in paint and that's why she did that
+arg2 [burn_a_dress_after_murder, witness] [dress_covered_in_paint] murder 0.1 .
+-- There was a hatchet found which was thought to the be weapon of the murder, however there was a similar found nearby
+arg3 [hatchet_head_found] [similar_axe_murder] murder -0.1 .
+-- She was seen purchasing acid, however there was no acid found in her father's body or her stepmother's one
+arg4 [try_to_purchase_acid] [no_poison_found] -murder 0.3 . -- just showing that it won't break
+
+-- After all there was no conclusive evidence to show that she murdered them
+arg5 [no_conclusive_evidence] [] -murder 0.4 .
+
+ASSUMPTIONS:
+
+-- Here are all the assumptions:
+:
+[home_alone , no_struggle, no_conclusive_evidence, no_poison_found, burn_a_dress_after_murder] .
+
+STANDARDS:
+
+murder beyond_reasonable_doubt .
+
+-- and it seems that this returns false
+-- *CustomIOandParser> testProposition "murder" my_caes 
+-- False
+-- because there is no conclusive evidence and the evidence present is not enough

@@ -1,0 +1,27 @@
+ARGUMENTS:
+
+-- This is a rather peculiar case which made it prohibited to teach evolution
+-- in any state funded school in Tennessee
+
+-- Apparently the fact that he was teaching evolution in the 1st place was bad enough even though he was a state employee
+arg1 [teaching_evolution] [state_employee] guilty 0.3 .
+-- he was breaking the law, because the butler act made it clear that you can't disprove the theistic theory of mans's origin
+arg2 [teacher_break_the_law, butler_act] [] guilty 0.8 .
+-- However the teacher was actually required to break the law by teaching since it was a part of the curriculum
+arg3 [teacher_required_to_break_law] [] -guilty 0.5 .
+-- But the students confirmed he did teach them that
+arg4 [student_witnesses] [told_to_be_against] guilty 0.2 . -- just showing that it won't break
+-- Even though clear evidence was show that evolution is a theory rather than a hypothesis
+arg5 [] [evidence_for_evolution] guilty -0.6 .
+-- And the fact that it was a bunch of religious people did not help much..
+arg6 [religous_lawyers_and_people] [] 0.4 .
+
+ASSUMPTIONS:
+
+-- For BoP we start with no assumptions:
+
+[ ] .
+
+STANDARDS:
+
+guilty clear_and_convincing .

@@ -1,0 +1,101 @@
+1. Structure of the test files.
+
+- The structure of the files which the parser will successfully parse and convert
+to args is as follows:
+
+ARGUMENTS:
+
+argi [pi] [ci] df weighti .
+argi+1 [pi+1] [ci+1] dfi+1 weighti+1 .
+
+ASSUMPTIONS:
+
+[assumption1, assumption2...]  .
+
+
+STANDARDS:
+
+propi some_standard_here .
+propi+1 another_standard_here .
+
+Where each of those propositions and strings are arguments and the weights are 
+double with 2 decimal places after the decimal point.
+
+For ease of use and readibility I decided to separate the three sections,
+which would make it much easier for someone to have a look at the file and
+understand which bit goes where.
+
+2. What is where and how to use it.
+
+The structure is as follows:
+- Carneades.lhs     - this is the original language.lhs file, which was renamed for
+ease of use. It contains the framework used by the other files.
+- Cyclic.hs         - contains the definition of the cyclic function and a few test
+examples which were used for the checking of the function. 
+- CustomIOandParser - this is the file where everything is being done. It contains
+both the IO and the parser. It is divided into several bits - IO, splitting and
+parsing and constructing the CAES, where the latter proved to be the hardest.
+
+In order to use this one could do:
+
+ghci CustomIOandParser.hs
+
+and then an example use would be
+
+let my_caes = parseFileMakeCAES "some/random/filepath/where/a/test/file/is"
+
+and then you could run all the different things to test if it actually works.
+
+For the 2nd part of the practical the following:
+
+- BurdenOfProof.hs - this contains all the functions, which model the trial and the notion of burden of proof.
+The main function called initiateSimulation takes two arguments - the name of the file and the proposition
+we are going to test against.
+
+An example usage of that would be
+$> initiateSimulation "AILP/Scopes_Trial_BoP" "guilty"
+The function will produce rich output explaining the process in detail and showing every step. This will work only if
+the proposition you want to test it against has been included in the list of standards in the test file.
+
+- Main.hs - this file is there, purely for compilation purposes and making an executable. It gets the sysargs and
+then triggers the above mentioned function.
+
+- makeTrial.sh - due to problems with compiling Haskell on DICE machine, I had to include a shell script to make 
+the whole  thing compile and make it more usable by others. It will produce an executable called Trial, which is to be ran by the user.
+
+To run and compile issue the following commands:
+
+just in case it's not executable
+$> chmod +x make_Trial.sh
+$> ./make_Trial.sh
+$> ./Trial "name_of_your_file" prop_you_want_test
+
+3. Test files.
+
+- I have included the test_file.txt which is the CAES from the language.lhs file
+implemented in order to check if the system work. The other test files are in 
+form Test_argument_i. They all have comments in them saying what do they return.
+
+- Just a note - the parser used to break if the last character is not a space.It
+will not automatically add a space in readFromFile. So don't get too shocked by 
+it.
+
+The test file for the 2nd part of the assignment is called "Scopes_Trial_BoP" It has some tweaked
+arguments weights and some slight rearrangements. Unlike the previous examples this will return False,
+as I believe teaching evolution is not wrong, but a natural thing for schools.
+
+Here is some sample output:
+
+
+[morvern]s1024819: ./Trial "Scopes_Trial_BoP" guilty
+Starting trial. Ultimately we're trying to prove guilty
+The defense has chosen: teaching_evolution from the list of available evidence.
+-- Many more lines come here
+["evidence_for_evolution","teacher_required_to_break_law","state_employee","told_to_be_against","student_witnesses","butler_act","teacher_break_the_law","teaching_evolution"]
+The party has chosen the following element: religous_lawyers_and_people from the evidence
+Final verdict for the subject being judged for guilty is False
+
+
+More detailed explanation on everything can be found in the report file.
+
+

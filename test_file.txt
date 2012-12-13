@@ -1,0 +1,18 @@
+ARGUMENTS:
+
+arg1 [kill] [propertydefense] intent 0.9 .
+arg2 [used_gun] [small_gun] intent 0.8 .
+arg3 [shot] [leg] intent 0.8 .
+arg4 [notify_police] [lie] -intent 0.4 .
+--The drug addict died because he didn't seek medical help
+arg5 [die] [not_seek_medical_help] intent 0.4 .
+--he is a repeated offender
+arg6 [repeated_offender] [wrong_person] -intent 0.3 .
+arg7 [dead_body] [not_human] die 0.9 .
+
+ASSUMPTIONS:
+[dead_body]
+
+STANDARDS:
+
+intent clear_and_convincing .

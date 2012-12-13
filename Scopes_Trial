@@ -1,0 +1,32 @@
+ARGUMENTS:
+
+-- This is a rather peculiar case which made it prohibited to teach evolution
+-- in any state funded school in Tennessee
+
+-- Apparently the fact that he was teaching evolution in the 1st place was bad enough even though he was a state employee
+arg1 [teaching_evolution] [state_employee] guilty 0.4 .
+-- he was breaking the law, because the butler act made it clear that you can't disprove the theistic theory of mans's origin
+arg2 [teacher_break_the_law, butler_act] [] guilty 0.2 .
+-- However the teacher was actually required to break the law by teaching since it was a part of the curriculum
+arg3 [teacher_required_to_break_law] [] -guilty 0.3 .
+-- But the students confirmed he did teach them that
+arg4 [student_witnesses] [] guilty 0.5 . -- just showing that it won't break
+-- Even though clear evidence was show that evolution is a theory rather than a hypothesis
+arg5 [] [evidence_for_evolution] guilty -0.3 .
+-- And the fact that it was a bunch of religious people did not help much..
+arg6 [religous_lawyers_and_people] [] 0.4 .
+
+ASSUMPTIONS:
+
+-- Here are all the assumptions:
+
+[teaching_evolution , state_employee, religous_lawyers_and_people, student_witnesses, evidence_for_evolution] .
+
+STANDARDS:
+
+guilty scintilla .
+
+-- and it seems that this returns True
+-- *CustomIOandParser> testProposition "guilty" my_caes 
+-- True
+-- He was basically a scapegoat for all the religious people who wanted to make an example 
