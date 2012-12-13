@@ -1,3 +1,9 @@
+The Carneades.lhs file is actually the language.lhs file featured here:
+http://www.cs.nott.ac.uk/~bmv/CarneadesDSL/index.html
+
+The file is included with the permission of the original authors - Bas Van Gijzel
+and Henrik Nilsson. Thanks to them for that!!
+
 1. Structure of the test files.
 
 - The structure of the files which the parser will successfully parse and convert
