@@ -4,6 +4,10 @@ http://www.cs.nott.ac.uk/~bmv/CarneadesDSL/index.html
 The file is included with the permission of the original authors - Bas Van Gijzel
 and Henrik Nilsson. Thanks to them for that!!
 
+I've also been mentioned over here for my small role in providing the initial 
+implementation for the cyclic check:
+http://hackage.haskell.org/packages/archive/CarneadesDSL/1.1.0.1/CarneadesDSL.cabal
+
 1. Structure of the test files.
 
 - The structure of the files which the parser will successfully parse and convert
@@ -54,20 +58,23 @@ and then you could run all the different things to test if it actually works.
 
 For the 2nd part of the practical the following:
 
-- BurdenOfProof.hs - this contains all the functions, which model the trial and the notion of burden of proof.
-The main function called initiateSimulation takes two arguments - the name of the file and the proposition
-we are going to test against.
+- BurdenOfProof.hs - this contains all the functions, which model the trial and
+the notion of burden of proof. The main function called initiateSimulation 
+takes two arguments - the name of the file and the proposition we are going to test against.
 
 An example usage of that would be
 $> initiateSimulation "AILP/Scopes_Trial_BoP" "guilty"
-The function will produce rich output explaining the process in detail and showing every step. This will work only if
-the proposition you want to test it against has been included in the list of standards in the test file.
+The function will produce rich output explaining the process in detail and
+showing every step. This will work only ifthe proposition you want to test it 
+against has been included in the list of standards in the test file.
 
-- Main.hs - this file is there, purely for compilation purposes and making an executable. It gets the sysargs and
-then triggers the above mentioned function.
+- Main.hs - this file is there, purely for compilation purposes and making an
+executable. It gets the sysargs and then triggers the above mentioned function.
 
-- makeTrial.sh - due to problems with compiling Haskell on DICE machine, I had to include a shell script to make 
-the whole  thing compile and make it more usable by others. It will produce an executable called Trial, which is to be ran by the user.
+- makeTrial.sh - due to problems with compiling Haskell on DICE machine,
+I had to include a shell script to make the whole thing compile and make it 
+more usable by others. It will produce an executable called Trial,
+which is to be ran by the user.
 
 To run and compile issue the following commands:
 
